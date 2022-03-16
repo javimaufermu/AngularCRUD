@@ -1,0 +1,56 @@
+<div class="Contenedor">
+    <div class="Formulario">
+        <div class="Titulo">
+            <div class="Cont-icon">
+                <i class="fas fa-cog"></i>
+            </div>
+            <h4 class="Name-titulo">Gestión de libros</h4>
+            <!--Titulo-->
+        </div>
+
+        <div class="Contenido">
+
+            <table class="Tabla_libros">
+                <thead>
+                    <tr>
+                        <td style="text-align: center;">Título</td>
+                        <td>Autores</td>
+                        <td>ISBN</td>                        
+                        <!--td style="text-align: right;">Tipo de usuario</td-->
+                        <td style="text-align: right;">Acciones</td>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let book of books">
+
+                    <tr>
+
+                        <td style="text-align: center;">
+                            {{book.titulo}}
+                        </td>
+                        <td>
+                            {{book.autor}}
+                        </td>
+                        <td>
+                            {{book.isbn}}
+                        </td>                        
+                        <!--td style="text-align: right;">
+                        
+                    </td-->
+                        <td style="text-align: right;">
+                            <button class="btn_tabla_consultar" value="Consultar libro" title="Consultar libro" (click)="getBook(book.id)">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <button class="btn_tabla_modificar" value="Editar libro" title="Editar libro" (click)="updateBook(book.id)">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                            <button class="btn_tabla_eliminar" value="Eliminar libro" title="Eliminar libro" (click)="deleteBook(book)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

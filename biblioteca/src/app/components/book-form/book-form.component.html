@@ -1,0 +1,63 @@
+<div class="Contenedor">
+    <!-- AQUI VA EL CODIGO PARA DE LAS DEMAS TAREAS -->
+    <div class="Formulario">
+        <div class="Titulo">
+            <div class="Cont-icon">
+                <i class="fas fa-plus"></i>
+            </div>
+            <span class="Name-titulo">Registrar Nuevo Libro</span>
+            <!--Titulo-->
+        </div>
+        <div class="Contenido">
+
+            <form (submit)="addBook(nuevoTitulo,nuevoAutor, nuevoIsbn, nuevoNumPag, nuevoEditorial, nuevoFechaPub)" ngNativeValidate>                
+                <div class="input-div texto">
+                    <div class="div">
+                        <h5>Título</h5>
+                        <input autocomplete="off" type="text" class="input" placeholder="Título del libro" #nuevoTitulo required>
+                    </div>
+                </div>
+
+                <div class="input-div texto">
+                    <div class="div">
+                        <h5>Autor(es)</h5>
+                        <input autocomplete="off" type="text" class="input" placeholder="Autor 1, Autor 2" #nuevoAutor required>
+                    </div>
+                </div>
+
+                <div class="input-div texto">
+                    <div class="div">
+                        <h5>ISBN</h5>
+                        <input autocomplete="off" type="text" class="input" name="isbn" placeholder="ISBN del libro" #nuevoIsbn required>
+                    </div>
+                </div>
+
+                <div class="input-div texto">
+                    <div class="div">
+                        <h5>Número de páginas</h5>
+                        <input autocomplete="off" type="number" class="input" name="paginas" placeholder="0" #nuevoNumPag required>
+                    </div>
+                </div>
+
+                <div class="input-div texto">
+                    <div class="div">
+                        <h5>Editorial</h5>
+                        <input autocomplete="off" type="text" class="input" name="editorial" placeholder="Nombre de la editorial" #nuevoEditorial required>
+                    </div>
+                </div>
+                <div class="input-div texto">
+                    <div class="div">
+                        <h5>Fecha de publicación</h5>
+                        <input autocomplete="off" type="number" class="input" name="fecha" placeholder="Año de publicación" #nuevoFechaPub required>
+                    </div>
+                </div>
+
+                <div class="BarraInferior">                    
+                    <input type="submit" class="btn_form" value="Registrar">
+                    <input type="button" class="btn_back" value="Cancelar" (click)="cancel()">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
