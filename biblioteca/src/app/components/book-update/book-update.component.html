@@ -1,63 +1,98 @@
-<div class="Contenedor">
-    <!-- AQUI VA EL CODIGO PARA DE LAS DEMAS TAREAS -->
-    <div class="Formulario">
-        <div class="Titulo">
-            <div class="Cont-icon">
-                <i class="fas fa-pen"></i>
-            </div>
-            <span class="Name-titulo">Editar Información del Libro</span>
-            <!--Titulo-->
-        </div>
-        <div class="Contenido">
+<nav class="Nav">
 
-            <form (submit)="updateBook(editTitulo,editAutor, editIsbn, editNumPag, editEditorial, editFechaPub)" ngNativeValidate>                
-                <div class="input-div texto">
-                    <div class="div">
-                        <h5>Título</h5>
-                        <input autocomplete="off" [ngModel]="titulo" name="titulo" type="text" class="input" placeholder="Título del libro" #editTitulo required>
-                    </div>
-                </div>
+    <div class="Logo">
+        <p>CRUD con Angular</p>
+    </div>
+    <div class="BarraNavegacion">
+        <button class="btn" (click)="gestionarLibro()">
+            <i class="fas fa-plus"></i>
+            <span>Gestionar Libros</span>
+        </button>
+        <button class="btn" (click)="registrarLibro()">
+            <i class="fas fa-search"></i>
+            <span>Registrar Nuevo Libro</span>
+        </button>
+    </div>
+</nav>
 
-                <div class="input-div texto">
-                    <div class="div">
-                        <h5>Autor(es)</h5>
-                        <input autocomplete="off" [ngModel]="autor" name="autor" type="text" class="input" placeholder="Autor 1, Autor 2" #editAutor required>
-                    </div>
-                </div>
+<section class="Section">
 
-                <div class="input-div texto">
-                    <div class="div">
-                        <h5>ISBN</h5>
-                        <input autocomplete="off" [ngModel]="isbn" name="isbn" type="text" class="input" name="isbn" placeholder="ISBN del libro" #editIsbn required>
-                    </div>
-                </div>
+    <div class="Header" align="end">
 
-                <div class="input-div texto">
-                    <div class="div">
-                        <h5>Número de páginas</h5>
-                        <input autocomplete="off" [ngModel]="numPag" name="numPag" type="number" class="input" name="paginas" placeholder="0" #editNumPag required>
-                    </div>
-                </div>
+        <span class="Header-text">{{email}}</span>
 
-                <div class="input-div texto">
-                    <div class="div">
-                        <h5>Editorial</h5>
-                        <input autocomplete="off" [ngModel]="editorial" name="editorial" type="text" class="input" name="editorial" placeholder="Nombre de la editorial" #editEditorial required>
-                    </div>
-                </div>
-                <div class="input-div texto">
-                    <div class="div">
-                        <h5>Fecha de publicación</h5>
-                        <input autocomplete="off" [ngModel]="fechaPub" name="fechaPub" type="number" class="input" name="fecha" placeholder="Año de publicación" #editFechaPub required>
-                    </div>
-                </div>
-
-                <div class="BarraInferior">                    
-                    <input type="submit" class="btn_form" value="Guardar cambios">
-                    <input type="submit" class="btn_back" value="Cancelar" (click)="cancel()">
-                </div>
-            </form>
-        </div>
+        <a class="fas fa-user-circle" onclick=""></a>
+        <a class="fas fa-power-off" title="Cerrar Sesión" (click)="cerrarSesion()"></a>
 
     </div>
-</div>
+    <div class="Contenedor">
+        <!-- AQUI VA EL CODIGO PARA DE LAS DEMAS TAREAS -->
+        <div class="Formulario">
+            <div class="Titulo">
+                <div class="Cont-icon">
+                    <i class="fas fa-pen"></i>
+                </div>
+                <span class="Name-titulo">Editar Información del Libro</span>
+                <!--Titulo-->
+            </div>
+            <div class="Contenido">
+
+                <form (submit)="updateBook(editTitulo,editAutor, editIsbn, editNumPag, editEditorial, editFechaPub)"
+                    ngNativeValidate>
+                    <div class="input-div texto">
+                        <div class="div">
+                            <h5>Título</h5>
+                            <input autocomplete="off" [ngModel]="titulo" name="titulo" type="text" class="input"
+                                placeholder="Título del libro" #editTitulo required>
+                        </div>
+                    </div>
+
+                    <div class="input-div texto">
+                        <div class="div">
+                            <h5>Autor(es)</h5>
+                            <input autocomplete="off" [ngModel]="autor" name="autor" type="text" class="input"
+                                placeholder="Autor 1, Autor 2" #editAutor required>
+                        </div>
+                    </div>
+
+                    <div class="input-div texto">
+                        <div class="div">
+                            <h5>ISBN</h5>
+                            <input autocomplete="off" [ngModel]="isbn" name="isbn" type="text" class="input" name="isbn"
+                                placeholder="ISBN del libro" #editIsbn required>
+                        </div>
+                    </div>
+
+                    <div class="input-div texto">
+                        <div class="div">
+                            <h5>Número de páginas</h5>
+                            <input autocomplete="off" [ngModel]="numPag" name="numPag" type="number" class="input"
+                                name="paginas" placeholder="0" #editNumPag required>
+                        </div>
+                    </div>
+
+                    <div class="input-div texto">
+                        <div class="div">
+                            <h5>Editorial</h5>
+                            <input autocomplete="off" [ngModel]="editorial" name="editorial" type="text" class="input"
+                                name="editorial" placeholder="Nombre de la editorial" #editEditorial required>
+                        </div>
+                    </div>
+                    <div class="input-div texto">
+                        <div class="div">
+                            <h5>Fecha de publicación</h5>
+                            <input autocomplete="off" [ngModel]="fechaPub" name="fechaPub" type="number" class="input"
+                                name="fecha" placeholder="Año de publicación" #editFechaPub required>
+                        </div>
+                    </div>
+
+                    <div class="BarraInferior">
+                        <input type="submit" class="btn_form" value="Guardar cambios">
+                        <input type="submit" class="btn_back" value="Cancelar" (click)="cancel()">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>

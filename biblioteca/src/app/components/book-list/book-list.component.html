@@ -1,3 +1,33 @@
+<nav class="Nav">
+
+    <div class="Logo">
+      <p>CRUD con Angular</p>
+    </div>
+    <div class="BarraNavegacion">
+      <button class="btn" (click)="gestionarLibro()">
+        <i class="fas fa-plus"></i>
+        <span>Gestionar Libros</span>
+      </button>
+      <button class="btn" (click)="registrarLibro()">
+        <i class="fas fa-search"></i>
+        <span>Registrar Nuevo Libro</span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="Section">
+
+    <div class="Header" align="end">
+
+      <span class="Header-text">{{email}}</span>
+
+      <a class="fas fa-user-circle" onclick=""></a>
+      <a class="fas fa-power-off" title="Cerrar Sesión" (click)="cerrarSesion()"></a>
+
+    </div>    
+
+
+
 <div class="Contenedor">
     <div class="Formulario">
         <div class="Titulo">
@@ -54,3 +84,4 @@
         </div>
     </div>
 </div>
+</section>

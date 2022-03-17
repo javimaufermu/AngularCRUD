@@ -5,13 +5,16 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { BookFormComponent } from './components/book-form/book-form.component';
 import { BookComponent } from './components/book/book.component';
 import { BookUpdateComponent } from './components/book-update/book-update.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: 'book-list', component: BookListComponent},
-  { path: '',  redirectTo: 'book-list',  pathMatch: 'full'},
-  { path: 'book-form', component: BookFormComponent},
-  { path: 'book/:id', component: BookComponent},
-  { path: 'book-update/:id', component: BookUpdateComponent}
+  { path: 'book-list', component: BookListComponent },
+  { path: '', redirectTo: 'book-list', pathMatch: 'full' },
+  { path: 'book-form', component: BookFormComponent },
+  { path: 'book/:id', component: BookComponent },
+  { path: 'book-update/:id', component: BookUpdateComponent },
+  { path: 'login', component: LoginComponent }
+  
 ];
 
 @NgModule({

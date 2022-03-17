@@ -1,82 +1,112 @@
-<div class="Contenedor">
-    <!-- AQUI VA EL CODIGO PARA DE LAS DEMAS TAREAS -->
-    <div class="Formulario">
-        <div class="Titulo">
-            <div class="Cont-icon">
-                <i class="fas fa-search"></i>
-            </div>
-            <span class="Name-titulo">Información del Libro</span>
-            <!--Titulo-->
-        </div>
-        <div class="Contenido">
+<nav class="Nav">
 
-            <table class="Tabla_libros">
-                
-                <tbody>
+    <div class="Logo">
+        <p>CRUD con Angular</p>
+    </div>
+    <div class="BarraNavegacion">
+        <button class="btn" (click)="gestionarLibro()">
+            <i class="fas fa-plus"></i>
+            <span>Gestionar Libros</span>
+        </button>
+        <button class="btn" (click)="registrarLibro()">
+            <i class="fas fa-search"></i>
+            <span>Registrar Nuevo Libro</span>
+        </button>
+    </div>
+</nav>
 
-                    <tr>
-                        <td class="item">
-                            Título
-                        </td>
-                        <td style="text-align: center;">
-                            {{titulo}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="item">
-                            Autores
-                        </td>
-                        <td style="text-align: center;">
-                            {{autor}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="item">
-                            ISBN
-                        </td>
-                        <td style="text-align: center;">
-                            {{isbn}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="item">
-                            Número de páginas
-                        </td>
-                        <td style="text-align: center;">
-                            {{numPag}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="item">
-                            Editorial
-                        </td>
-                        <td style="text-align: center;">
-                            {{editorial}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="item">
-                            Fecha de publicación
-                        </td>
-                        <td style="text-align: center;">
-                            {{fechaPub}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="item">
-                            Fecha de registro
-                        </td>
-                        <td style="text-align: center;">
-                            {{day}}/{{month}}/{{year}}, {{hour}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>            
+<section class="Section">
 
-            <div class="BarraInferior">                                    
-                <input type="submit" class="btn_back" value="Volver" (click)="cancel()">
-            </div>
-        </div>
+    <div class="Header" align="end">
+
+        <span class="Header-text">{{email}}</span>
+
+        <a class="fas fa-user-circle" onclick=""></a>
+        <a class="fas fa-power-off" title="Cerrar Sesión" (click)="cerrarSesion()"></a>
 
     </div>
-</div>
+
+
+    <div class="Contenedor">
+        <!-- AQUI VA EL CODIGO PARA DE LAS DEMAS TAREAS -->
+        <div class="Formulario">
+            <div class="Titulo">
+                <div class="Cont-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <span class="Name-titulo">Información del Libro</span>
+                <!--Titulo-->
+            </div>
+            <div class="Contenido">
+
+                <table class="Tabla_libros">
+
+                    <tbody>
+
+                        <tr>
+                            <td class="item">
+                                Título
+                            </td>
+                            <td style="text-align: center;">
+                                {{titulo}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="item">
+                                Autores
+                            </td>
+                            <td style="text-align: center;">
+                                {{autor}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="item">
+                                ISBN
+                            </td>
+                            <td style="text-align: center;">
+                                {{isbn}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="item">
+                                Número de páginas
+                            </td>
+                            <td style="text-align: center;">
+                                {{numPag}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="item">
+                                Editorial
+                            </td>
+                            <td style="text-align: center;">
+                                {{editorial}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="item">
+                                Fecha de publicación
+                            </td>
+                            <td style="text-align: center;">
+                                {{fechaPub}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="item">
+                                Fecha de registro
+                            </td>
+                            <td style="text-align: center;">
+                                {{day}}/{{month}}/{{year}}, {{hour}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="BarraInferior">
+                    <input type="submit" class="btn_back" value="Volver" (click)="cancel()">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

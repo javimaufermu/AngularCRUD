@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from "../../services/book.service";
 import { Book } from '../../models/Book';
+import { Users } from '../../models/Users';
 
 @Component({
   selector: 'app-book',
@@ -22,18 +23,25 @@ export class BookComponent implements OnInit {
   month: any;
   day: any;
   hour: any;
-  //books: Book[];
-  //book: Book;
+  min: any;
+  users: Users[];
+  login: boolean;  
+  email: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public bookService: BookService
   ) {
     //this.books = [];    
+    this.users = JSON.parse(localStorage.getItem('Users') || '{}');
+    this.login = this.users[0]?.estado;
+    this.email = this.users[0]?.login;
+    this.validarUser();
     this.route.params.subscribe((param: any) => {
       this.id = parseInt(param.id);
-      console.log("Id por mostrar: " + this.id);      
+      //console.log("Id por mostrar: " + this.id);      
       //this.book=this.bookService.getBook(this.id);
+      this.validarLibro();
       this.titulo = this.bookService.getBook(this.id)?.titulo;
       this.autor = this.bookService.getBook(this.id)?.autor;
       this.isbn = this.bookService.getBook(this.id)?.isbn;
@@ -45,21 +53,63 @@ export class BookComponent implements OnInit {
       this.year = this.fechaTab.getFullYear();
       this.month = this.fechaTab.getMonth()+1;
       this.day = this.fechaTab.getDate();    
-      this.hour = this.fechaTab.getHours().toString() + ":" + this.fechaTab.getMinutes().toString();
-      console.log("Año:",this.year," mes: ",this.month," dia: ",this.day);
-      console.log("Hora: ", this.hour);
-      
-      //console.log("getBook",this.bookService.getBook(this.id)?.titulo);      
+      this.min = this.fechaTab.getMinutes().toString();
+      if(this.min<10){
+        this.min = "0" + this.min;
+      }
+      this.hour = this.fechaTab.getHours().toString() + ":" + this.min;
+      //console.log("Año:",this.year," mes: ",this.month," dia: ",this.day);
+      //console.log("Hora: ", this.hour);
+            
     })
   }
 
-  ngOnInit(): void {
-    //this.books = this.bookService.getBooks();
+  ngOnInit(): void {    
+  }
 
+  validarUser() {
+    if (localStorage.getItem('Users') === null) {
+      this.router.navigateByUrl('/login');
+    } else {
+      if (this.users.length == 0) {
+        this.router.navigateByUrl('/login');
+      }
+      else {
+        if (this.login == false) {
+          this.router.navigateByUrl('/login');
+        }
+      }
+    }
+  }
+
+  validarLibro(){
+    if(this.bookService.getBook(this.id)==null){
+      alert("El libro no existe");
+      this.router.navigateByUrl('/book-list');
+    }
   }
 
   cancel(){
     this.router.navigateByUrl('/book-list');
   }
   
+  cerrarSesion() {
+    this.users = JSON.parse(localStorage.getItem('Users') || '{}');
+    this.users = [
+      { login: this.users[0].login, password: this.users[0].password, estado: false }
+    ];
+    localStorage.setItem('Users', JSON.stringify(this.users));
+    this.login = false;
+    this.router.navigateByUrl('/login');
+  }
+
+  registrarLibro() {
+    this.router.navigateByUrl('/book-form');
+  }
+
+  gestionarLibro() {
+    this.router.navigateByUrl('/book-list');
+  }
+
+
 }
